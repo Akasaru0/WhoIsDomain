@@ -36,16 +36,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Get Information About a Domain Name')
     parser.add_argument('-d','--domain',dest='domain',help='The domain name to be checked. You can add more domains with the seperator \'|\'',required=True)
     parser.add_argument('-o','--output-file',dest="output",help='Output File Name. If not specify the result will just be printed')
-    parser.add_argument('-i','--informaiton',dest='information',help='Information about the domain. You can add more information with the seperator \'|\'')
+    parser.add_argument('-i','--informaiton',dest='information',default="creation_date|registrar|city",help='Information about the domain. You can add more information with the seperator \'|\'')
     args = parser.parse_args()
     
-    domain_name = str(args.domain)
-    information = str(args.information)
-
-    if args.information == "None":
-        print("information == None")
-        information = "creation_date|registrar|city"
-    
+    domain_name = args.domain
+    information = args.information  
     if str(args.output) == "None":
         print("Prompt :)")
         promptInformation(domain_name,information)
