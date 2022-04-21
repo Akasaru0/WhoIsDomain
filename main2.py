@@ -1,6 +1,6 @@
+from ast import arg
 import whois
 import argparse
-import json
 import csv
 
 def promptInformation(domains, information):
@@ -22,14 +22,16 @@ def extract2csv(domains,information,output):
         writer.writerow(header)
 
         for domain in domains.split("|"):
-            print('[x] Query the TLDs for information about the domain : '+domain)
+            if args.verbose <=1 :
+                print('[x] Query the TLDs for information about the domain : '+domain)
             resp = whois.whois(domain)
             line = []
             #Content of the CSV
             for info in information.split("|"):
                 line.append(resp[info])
             writer.writerow(line)
-    print("Wrinting finished")
+    if args.verbose <=1 :
+        print("Wrinting finished")
 
 
 if __name__ == '__main__':
@@ -37,6 +39,7 @@ if __name__ == '__main__':
     parser.add_argument('-d','--domain',dest='domain',help='The domain name to be checked. You can add more domains with the seperator \'|\'',required=True)
     parser.add_argument('-o','--output-file',dest="output",help='Output File Name. If not specify the result will just be printed')
     parser.add_argument('-i','--informaiton',dest='information',default="creation_date|registrar|city",help='Information about the domain. You can add more information with the seperator \'|\'')
+    parser.add_argument('-v','--verbose', dest='verbose',default=0,action='count',help='Prompt the result')
     args = parser.parse_args()
     
     domain_name = args.domain
@@ -44,4 +47,6 @@ if __name__ == '__main__':
     if str(args.output) == "None":
         promptInformation(domain_name,information)
     else:
+        if args.verbose <=1 :
+            promptInformation(domain_name,information)
         extract2csv(domain_name,information,args.output)
