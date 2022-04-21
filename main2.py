@@ -42,7 +42,6 @@ if __name__ == '__main__':
     domain_name = args.domain
     information = args.information  
     if str(args.output) == "None":
-        print("Prompt :)")
         promptInformation(domain_name,information)
     else:
         extract2csv(domain_name,information,args.output)
