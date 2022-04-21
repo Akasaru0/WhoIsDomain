@@ -39,13 +39,13 @@ if __name__ == '__main__':
     parser.add_argument('-i','--informaiton',dest='information',help='Information about the domain. You can add more information with the seperator \'|\'')
     args = parser.parse_args()
     
-    domain_name = args.domain
-    information = args.information
+    domain_name = str(args.domain)
+    information = str(args.information)
 
     if args.information == "None":
         information = "creation_date|registrar|city"
     
-    if args.output == "None":
+    if type(args.output) == NoneType:
         promptInformation(domain_name,information)
     else:
         extract2csv(domain_name,information,args.output)
