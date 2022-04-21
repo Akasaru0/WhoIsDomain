@@ -12,13 +12,14 @@ client = Client(api_key='at_ws24xwuGq75oCQYMZXD7Egc1B3qcU',outputFormat='JSON')
 domain_name = 'mickdec.com'
 print('[x] Query WhoisAPIXML for the domain :'+domain_name)
 whois = client.data(domain_name)
-print('[x] Query received')
-# Get particular field of the whois record
-print('[x] Query Information :')
-print('     ~> Creation Date :'+whois["WhoisRecord"]["createDate"])
-print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
-print('     ~> Organization : '+whois["WhoisRecord"]["registrant"]["organization"])
 print(whois)
+#print('[x] Query received')
+# Get particular field of the whois record
+#print('[x] Query Information :')
+#print('     ~> Creation Date :'+whois["WhoisRecord"]["createDate"])
+#print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
+#print('     ~> Organization : '+whois["WhoisRecord"]["registrant"]["organization"])
+#print(whois)
 
 
 #print(whois.created_date_raw+" / "+whois.domain_name+" / "+whois.registrant.organization)
