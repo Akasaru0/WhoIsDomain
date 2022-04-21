@@ -35,11 +35,11 @@ def extract2csv(domains,information,output):
 
 
 if __name__ == '__main__':
+    #Gestion des arguments
     parser = argparse.ArgumentParser(description='Get Information About a Domain Name')
     parser.add_argument('-d','--domain',dest='domain',help='The domain name to be checked. You can add more domains with the seperator \'|\'',required=True)
     parser.add_argument('-o','--output-file',dest="output",help='Output File Name. If not specify the result will just be printed')
     parser.add_argument('-i','--informaiton',dest='information',default="creation_date|registrar|city",help='Information about the domain. You can add more information with the seperator \'|\'')
-    parser.add_argument('-v','--verbose', dest='verbose',default=0,action='count',help='Prompt the result')
     args = parser.parse_args()
     
     domain_name = args.domain
@@ -47,6 +47,4 @@ if __name__ == '__main__':
     if str(args.output) == "None":
         promptInformation(domain_name,information)
     else:
-        if args.verbose <=2 :
-            promptInformation(domain_name,information)
         extract2csv(domain_name,information,args.output)
