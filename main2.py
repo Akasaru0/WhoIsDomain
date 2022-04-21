@@ -10,7 +10,7 @@ def promptInformation(domains, information):
         print('[x] Query received')
         print('[x] Query Information :')
         for info in information.split("|"):
-            print('     ~> '+info+' :'+resp[info])
+            print('     ~> '+str(info)+' :'+str(resp[info]))
 
 def extract2csv(domains,information,output):
     with open(output+'.csv','w',newline='') as csvfile:
@@ -43,9 +43,11 @@ if __name__ == '__main__':
     information = str(args.information)
 
     if args.information == "None":
+        print("information == None")
         information = "creation_date|registrar|city"
     
     if str(args.output) == "None":
+        print("Prompt :)")
         promptInformation(domain_name,information)
     else:
         extract2csv(domain_name,information,args.output)
