@@ -18,6 +18,6 @@ print('     ~> Creation Date :'+whois["WhoisRecord"]["createdDate"])
 print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
 print('     ~> Organization : '+whois["WhoisRecord"]["administrativeContact"]["organization"])
 if args.output != "None":
-    with open(args.output+'.csv',newline=''):
-        writer = csv.writer(args.output+'.csv',delimiter='/')
+    with open(args.output+'.csv','w',newline='') as csvfile:
+        writer = csv.writer(csvfile,delimiter='/')
         writer.writerow(whois["WhoisRecord"]["createdDate"],whois["WhoisRecord"]["registrant"]["name"],whois["WhoisRecord"]["administrativeContact"]["organization"])
