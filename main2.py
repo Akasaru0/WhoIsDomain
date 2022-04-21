@@ -45,7 +45,7 @@ if __name__ == '__main__':
     if args.information == "None":
         information = "creation_date|registrar|city"
     
-    if type(args.output) == NoneType:
+    if str(args.output) == "None":
         promptInformation(domain_name,information)
     else:
         extract2csv(domain_name,information,args.output)
