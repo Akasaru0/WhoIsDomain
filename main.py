@@ -9,16 +9,16 @@ from whoisapi import *
 
 client = Client(api_key='at_ws24xwuGq75oCQYMZXD7Egc1B3qcU',outputFormat='JSON')
 # Get parsed whois record as a model instance.
-domain_name = 'mickdec.com'
+domain_name = 'tryhackme.com'
 print('[x] Query WhoisAPIXML for the domain :'+domain_name)
-whois = client.data(domain_name)
+whois = client.raw_data(domain_name)
 print(whois)
 print('[x] Query received')
 # Get particular field of the whois record
 print('[x] Query Information :')
 print('     ~> Creation Date :'+whois["WhoisRecord"]["create_date_raw"])
-#print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
-#print('     ~> Organization : '+whois["WhoisRecord"]["registrant"]["organization"])
+print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
+print('     ~> Organization : '+whois["WhoisRecord"]["administrativeContact"]["organization"])
 #print(whois)
 
 
