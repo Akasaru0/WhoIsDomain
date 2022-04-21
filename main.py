@@ -5,14 +5,15 @@
 #parser.add_argument('-o','--ouput-file',help='Ouput File Name. If not specify the result will just be printed')
 
 from whoisapi import *
-
+import json
 
 client = Client(api_key='at_ws24xwuGq75oCQYMZXD7Egc1B3qcU',outputFormat='JSON')
 # Get parsed whois record as a model instance.
 domain_name = 'tryhackme.com'
 print('[x] Query WhoisAPIXML for the domain :'+domain_name)
-whois = client.raw_data(domain_name)
+whois = json.loads(client.raw_data(domain_name))
 print(whois)
+print(type(whois))
 print('[x] Query received')
 # Get particular field of the whois record
 print('[x] Query Information :')
