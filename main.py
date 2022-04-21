@@ -13,10 +13,10 @@ domain_name = 'mickdec.com'
 print('[x] Query WhoisAPIXML for the domain :'+domain_name)
 whois = client.data(domain_name)
 print(whois)
-#print('[x] Query received')
+print('[x] Query received')
 # Get particular field of the whois record
-#print('[x] Query Information :')
-#print('     ~> Creation Date :'+whois["WhoisRecord"]["createDate"])
+print('[x] Query Information :')
+print('     ~> Creation Date :'+whois["WhoisRecord"]["create_date_raw"])
 #print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
 #print('     ~> Organization : '+whois["WhoisRecord"]["registrant"]["organization"])
 #print(whois)
