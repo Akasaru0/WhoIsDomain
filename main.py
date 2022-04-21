@@ -17,7 +17,7 @@ print(type(whois))
 print('[x] Query received')
 # Get particular field of the whois record
 print('[x] Query Information :')
-print('     ~> Creation Date :'+whois["WhoisRecord"]["create_date_raw"])
+print('     ~> Creation Date :'+whois["WhoisRecord"]["createDate"])
 print('     ~> Name of the Registrant : '+whois["WhoisRecord"]["registrant"]["name"])
 print('     ~> Organization : '+whois["WhoisRecord"]["administrativeContact"]["organization"])
 #print(whois)
