@@ -20,4 +20,4 @@ print('     ~> Organization : '+whois["WhoisRecord"]["administrativeContact"]["o
 if args.output != "None":
     with open(args.output+'.csv','w',newline='') as csvfile:
         writer = csv.writer(csvfile,delimiter='/')
-        writer.writerow(whois["WhoisRecord"]["createdDate"],whois["WhoisRecord"]["registrant"]["name"],whois["WhoisRecord"]["administrativeContact"]["organization"])
+        writer.writerow([whois["WhoisRecord"]["createdDate"],whois["WhoisRecord"]["registrant"]["name"],whois["WhoisRecord"]["administrativeContact"]["organization"]])
