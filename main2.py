@@ -29,15 +29,13 @@ def extract2csv(domains,information,output):
         writer.writerow(header)
 
         for domain in domains.split("|"):
-            if args.verbose <=1 :
-                print('[x] Query the TLDs for information about the domain : '+domain)
+            print('[x] Query the TLDs for information about the domain : '+domain)
             resp = whois.whois(domain)
             line = []
             #Content of the CSV
             for info in information.split("|"):
                 line.append(resp[info])
             writer.writerow(line)
-    if args.verbose <=1 :
         print("Wrinting finished")
 
 
