@@ -23,7 +23,7 @@ def extract2csv(domains,information,output):
     with open(output+'.csv','w',newline='') as csvfile:
         writer = csv.writer(csvfile,delimiter='/')
         #Header of the CSV file
-        header = []
+        header = ['domain']
         for info in information.split("|"):
             header.append(info)
         writer.writerow(header)
@@ -31,12 +31,12 @@ def extract2csv(domains,information,output):
         for domain in domains.split("|"):
             print('[x] Query the TLDs for information about the domain : '+domain)
             resp = whois.whois(domain)
-            line = []
+            line = [''+domain]
             #Content of the CSV
             for info in information.split("|"):
                 line.append(resp[info])
             writer.writerow(line)
-        print("Wrinting finished")
+    print("Wrinting finished")
 
 
 if __name__ == '__main__':
